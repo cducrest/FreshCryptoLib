@@ -366,11 +366,10 @@ function SqrtMod(uint256 self) internal view returns (uint256 result){
 
             }
             assembly {
-                for { let T4 := add(shl(1, and(shr(index, scalar_v), 1)), and(shr(index, scalar_u), 1)) } eq(T4, 0) {
+                for { zz := add(shl(1, and(shr(index, scalar_v), 1)), and(shr(index, scalar_u), 1)) } eq(zz, 0) {
                     index := sub(index, 1)
-                    T4 := add(shl(1, and(shr(index, scalar_v), 1)), and(shr(index, scalar_u), 1))
+                    zz := add(shl(1, and(shr(index, scalar_v), 1)), and(shr(index, scalar_u), 1))
                 } {}
-                zz := add(shl(1, and(shr(index, scalar_v), 1)), and(shr(index, scalar_u), 1))
 
                 if eq(zz, 1) {
                     X := gx
